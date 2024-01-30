@@ -1,0 +1,133 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Russo One', sans-serif;
+}
+
+/*Box with the starting content*/
+.box{
+  border: none;
+  background-color: #a49abf;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+}
+
+.box::before{
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 220%;
+  background: #ffffff;
+  animation: rotate 4s linear infinite;
+}
+
+.box::after{
+  content: '';
+  position: absolute;
+  background: #423172;
+  inset: 5px;
+  border-radius: 16px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+/*Title fROM THE START GAME CARD*/
+.text-card{
+    font-size: 90px;
+    text-shadow: 5px 5px rgb(71, 70, 70);
+    z-index: 10;
+}
+
+@media(max-width: 1000px) {
+ .text-card{
+    font-size: 60px;
+ }   
+}
+
+.gif{
+  height: 650px;
+  z-index: 5;
+}
+
+/* CSS fROM THE START BUTTON */
+.text-card-button{
+    margin: 12px;
+    height: 70px;
+    width: 120px;
+    border-radius: 10px;
+    background: #333;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+      inset -5px -5px 10px #222;
+    cursor: pointer;
+    border: none;
+    font-size: 32px;
+    color: rgb(161, 161, 161);
+    transition: 500ms;
+    z-index: 15;
+}
+
+/*Buttons for the letters*/
+.btn-letter {
+  height: 50px;
+  margin: 5px;
+  width: 50px;
+  background: #333;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Consolas, Courier New, monospace;
+  border: solid #404c5d 1px;
+  font-size: 16px;
+  color: rgb(161, 161, 161);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #2e2d2d, #212121);
+  -webkit-box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+    inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+  box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+    inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+}
+
+.btn-letter:hover {
+  -webkit-box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+  box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+  color: #d6d6d6;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.btn-letter:active {
+  -webkit-box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+  box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+  color: #d6d6d6;
+  -webkit-transition: 100ms;
+  transition: 100ms;
+}
+
+.panelOn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panelOff{
+  display: none;
+}
