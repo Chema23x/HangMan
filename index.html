@@ -15,9 +15,9 @@
 <body class="bg-secondary">
 
     <!--Audio del juego-->
-    <audio id="gameSound" loop>
+    <!-- <audio id="gameSound" loop>
         <source src="./Audio/2021-08-16_-_8_Bit_Adventure_-_www.FesliyanStudios.com.mp3" type="audio/mp3">
-    </audio>
+    </audio> -->
 
 <!--Card de inicio del Juego-->
   <div id="start-card" class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
@@ -47,17 +47,43 @@
             <div class="row border d-flex align-items-center justify-content-center fs-3 text-center lh-sm " style="height: 30%">
                 Hint: Green vegetable
             </div>
-            <div class="row border" style="height: 70%">
+
+
+            <div id="hangman-container" class="row border d-flex justify-content-center align-items-center lh-1" style="height: 70%">
             </div>
+
         </div>
 
-        <div id="game-buttons" class="col-8 border d-flex align-items-center flex-wrap">
+        <div id="game-buttons" class="col-8 border d-flex align-items-center justify-content-center px-5 flex-wrap">
         </div>
         
     </div>
 
-    <div class="row border" style="height: 40%">
-    </div>
+    <div class="row border d-flex align-items-center justify-content-center" style="height: 40%">
+      <div class="d-flex justify-content-around" style="height: 50%; width: 80%;">  
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter1" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter2" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter3" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter4" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter5" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter6" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+        <div class="d-inline-block border-bottom border-5" style="width: 100px;">
+          <div id="letter7" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
+        </div>
+      </div>
+    </div>    
   </div>
 </div>
 
