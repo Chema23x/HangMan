@@ -15,9 +15,9 @@
 <body class="bg-secondary">
 
     <!--Audio del juego-->
-    <!-- <audio id="gameSound" loop>
+    <audio id="gameSound" loop>
         <source src="./Audio/2021-08-16_-_8_Bit_Adventure_-_www.FesliyanStudios.com.mp3" type="audio/mp3">
-    </audio> -->
+    </audio>
 
 <!--Card de inicio del Juego-->
   <div id="start-card" class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
@@ -40,7 +40,7 @@
 
 
   <!--Contenido del Juego-->
-<div id="panel" class="panelOff" style="height: 100vh; width: 100vw;">
+<div id="panel" class="panelOff" style="height: 100vh; width: 100vw; position: absolute;">
   <div  style="height: 80vh; width: 85vw;">
     <div class="row border" style="height: 60%">
         <div class="col-4 border">
@@ -85,6 +85,26 @@
       </div>
     </div>    
   </div>
+</div>
+
+
+    <!--Card de game over del Juego-->
+<div class="loseAlert" style="display: none; position: relative;">
+
+  <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="row rounded-4 shadow-lg loseBox" style="height: 70vh; width: 70vw;">
+ 
+         <div class="d-flex justify-content-center align-items-center" style="height: 55%;">
+             <h1 class="text-card pt-3 fw-bolder fst-italic">Game Over!</h1>
+         </div>
+ 
+         <div class="d-flex justify-content-center align-items-center" style="height: 35%;">
+             <button id="btn-restart" class="lose-card-button">Try again!</button>
+         </div>
+ 
+    </div>
+   </div>
+  
 </div>
 
 </body>

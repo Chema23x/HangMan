@@ -99,7 +99,7 @@ const drawingStages = [
 let errorCount = 0;
 
 let hangManArea = document.querySelector("#hangman-container");
-hangManArea.innerText = drawingStages[0].join("\n")
+hangManArea.innerHTML = `<pre>${drawingStages[0].join("\n")}</pre>`
 
 // Funcion a los botones
 
@@ -161,9 +161,11 @@ function showHangMan() {
     // Verifica si hay etapas adicionales del dibujo disponibles
     if (errorCount < drawingStages.length) {
         // Utiliza el elemento pre para preservar los saltos de línea
-        hangManArea.innerText = `${drawingStages[errorCount].join("\n")}`;
+        hangManArea.innerHTML = `<pre>${drawingStages[errorCount].join("\n")}</pre>`;
     } else {
         hangManArea.textContent = "¡GAME OVER!";
+        document.querySelector(".loseAlert").style.display = "flex";
+        document.querySelector("#panel").classList.add("loseGame")
     }
 }
 
@@ -184,3 +186,27 @@ letterButtons.forEach(button => {
 
 // Fin  de Juego
 
+let reStartBtn = document.querySelector("#btn-restart");
+
+reStartBtn.addEventListener("click", (e) => {
+    // Reset game state
+
+    // Remove the word completion message
+    document.querySelector(".loseAlert").style.display = "none";
+
+    // Remove the losing game class
+    document.querySelector("#panel").classList.remove("loseGame");
+
+    // Remove the drawn hangman
+    let hangManArea = document.querySelector("#hangman-container");
+    hangManArea.innerHTML = `<pre>${drawingStages[0].join("\n")}</pre>`;
+
+    // Reset error count
+    errorCount = 0;
+
+    // Remove any added classes from letter buttons
+    letterButtons.forEach(button => {
+        button.classList.remove("btn-letter-true", "btn-letter-false");
+    });
+
+});
