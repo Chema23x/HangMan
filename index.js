@@ -1,3 +1,5 @@
+
+//Panel de inicio de juego
 let startCard = document.querySelector("#start-card")
 let gameSound = document.querySelector("#gameSound")
 let startBtn =document.querySelector("#btn-start");
@@ -99,7 +101,7 @@ const drawingStages = [
 let errorCount = 0;
 
 let hangManArea = document.querySelector("#hangman-container");
-hangManArea.innerHTML = `<pre>${drawingStages[0].join("\n")}</pre>`
+hangManArea.innerHTML = `<pre>${drawingStages[0].join("\n")}</pre>`;
 
 // Funcion a los botones
 
@@ -128,11 +130,14 @@ function handleButtonClick(event) {
         // Agrega la clase solo al botón clicado
         clickedButton.classList.add("btn-letter-true");
 
-        // Verifica si todas las casillas están llenas
+        // Verifica si todas las casillas están llenas para lanzar la alerta de victoria
         if (checkWordComplete()) {
-            alert("¡Felicidades! Has completado la palabra.");
-            // Puedes realizar acciones adicionales aquí, como reiniciar el juego.
-        }
+            setTimeout(() => {
+        document.querySelector(".winAlert").style.display = "flex";
+        document.querySelector("#panel").classList.add("endGame");
+        gameSound.pause();
+    }, 1000);
+}
 
     } else {
         console.log(`Too bad! ${clickedLetter} is not in the word.`);
@@ -154,6 +159,8 @@ function handleButtonClick(event) {
         showHangMan();
     }
 }
+
+// lOSE GAME
      
 function showHangMan() {
     let hangManArea = document.querySelector("#hangman-container");
@@ -165,10 +172,12 @@ function showHangMan() {
     } else {
         hangManArea.textContent = "¡GAME OVER!";
         document.querySelector(".loseAlert").style.display = "flex";
-        document.querySelector("#panel").classList.add("loseGame")
+        document.querySelector("#panel").classList.add("endGame");
+        gameSound.pause();
     }
 }
 
+// Click en botones
 
 function checkWordComplete() {
     // Verifica si todas las letras de la palabra están en las casillas
@@ -184,7 +193,7 @@ letterButtons.forEach(button => {
     button.addEventListener("click", handleButtonClick);
 });
 
-// Fin  de Juego
+// Game over (Re-start)
 
 let reStartBtn = document.querySelector("#btn-restart");
 
@@ -195,7 +204,7 @@ reStartBtn.addEventListener("click", (e) => {
     document.querySelector(".loseAlert").style.display = "none";
 
     // Remove the losing game class
-    document.querySelector("#panel").classList.remove("loseGame");
+    document.querySelector("#panel").classList.remove("endGame");
 
     // Remove the drawn hangman
     let hangManArea = document.querySelector("#hangman-container");
@@ -204,9 +213,55 @@ reStartBtn.addEventListener("click", (e) => {
     // Reset error count
     errorCount = 0;
 
-    // Remove any added classes from letter buttons
-    letterButtons.forEach(button => {
+    // Reset the word array
+    const word = ["l", "e", "t", "t", "u", "c", "e"];
+
+    // Reset letter buttons and their classes
+    letterButtons.forEach((button, index) => {
+        const letterElement = document.querySelector(`#letter${index + 1}`);
+        if (letterElement) {
+            letterElement.innerText = "";
+        }
         button.classList.remove("btn-letter-true", "btn-letter-false");
     });
 
+    gameSound.currentTime = 0;
+    gameSound.play();
+});
+
+// Win Game (Re-start)
+
+
+let newGameBtn = document.querySelector("#winBtn-restart");
+
+newGameBtn.addEventListener("click", (e) => {
+    // Reset game state
+
+    // Remove the word completion message
+    document.querySelector(".winAlert").style.display = "none";
+
+    // Remove the losing game class
+    document.querySelector("#panel").classList.remove("endGame");
+
+    // Remove the drawn hangman
+    let hangManArea = document.querySelector("#hangman-container");
+    hangManArea.innerHTML = `<pre>${drawingStages[0].join("\n")}</pre>`;
+
+    // Reset error count
+    errorCount = 0;
+
+    // Reset the word array
+    const word = ["l", "e", "t", "t", "u", "c", "e"];
+
+    // Reset letter buttons and their classes
+    letterButtons.forEach((button, index) => {
+        const letterElement = document.querySelector(`#letter${index + 1}`);
+        if (letterElement) {
+            letterElement.innerText = "";
+        }
+        button.classList.remove("btn-letter-true", "btn-letter-false");
+    });
+
+    gameSound.currentTime = 0;
+    gameSound.play();
 });

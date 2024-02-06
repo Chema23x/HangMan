@@ -12,12 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <title>Project: HangMan</title>
 </head>
-<body class="bg-secondary">
+<body style="background-color: rgb(92, 89, 86);">
 
     <!--Audio del juego-->
-    <audio id="gameSound" loop>
+    <!-- <audio id="gameSound" loop>
         <source src="./Audio/2021-08-16_-_8_Bit_Adventure_-_www.FesliyanStudios.com.mp3" type="audio/mp3">
-    </audio>
+    </audio> -->
 
 <!--Card de inicio del Juego-->
   <div id="start-card" class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
@@ -40,26 +40,26 @@
 
 
   <!--Contenido del Juego-->
-<div id="panel" class="panelOff" style="height: 100vh; width: 100vw; position: absolute;">
-  <div  style="height: 80vh; width: 85vw;">
-    <div class="row border" style="height: 60%">
-        <div class="col-4 border">
-            <div class="row border d-flex align-items-center justify-content-center fs-3 text-center lh-sm " style="height: 30%">
+<div id="panel" class="panelOff " style="height: 100vh; width: 100vw; position: absolute;">
+  <div class="rounded-4 shadow-lg" style="height: 80vh; width: 85vw; background-color: rgb(10, 117, 131);">
+    <div class="row " style="height: 60%">
+        <div class="col-4">
+            <div class="row d-flex align-items-center justify-content-center fs-3 text-center lh-sm " style="height: 30%">
                 Hint: Green vegetable
             </div>
 
 
-            <div id="hangman-container" class="row border d-flex justify-content-center align-items-center lh-1" style="height: 70%">
+            <div id="hangman-container" class="row d-flex justify-content-center align-items-center lh-1 py-3" style="height: 70%">
             </div>
 
         </div>
 
-        <div id="game-buttons" class="col-8 border d-flex align-items-center justify-content-center px-5 flex-wrap">
+        <div id="game-buttons" class="col-8 d-flex align-items-center justify-content-center px-5 flex-wrap">
         </div>
         
     </div>
 
-    <div class="row border d-flex align-items-center justify-content-center" style="height: 40%">
+    <div class="row d-flex align-items-center justify-content-center" style="height: 40%">
       <div class="d-flex justify-content-around" style="height: 50%; width: 80%;">  
         <div class="d-inline-block border-bottom border-5" style="width: 100px;">
           <div id="letter1" class="d-flex align-items-center justify-content-center fs-1" style="width: 90%; height: 90%;"></div>
@@ -106,6 +106,25 @@
    </div>
   
 </div>
+
+    <!--Card de win del Juego-->
+    <div class="winAlert" style="display: none; position: relative;">
+
+      <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="row rounded-4 shadow-lg winBox" style="height: 70vh; width: 70vw;">
+     
+             <div class="d-flex justify-content-center align-items-center" style="height: 55%;">
+                 <h1 class="text-card pt-3 fw-bolder fst-italic">Thanks for playing!</h1>
+             </div>
+     
+             <div class="d-flex justify-content-center align-items-center" style="height: 35%;">
+                 <button id="winBtn-restart" class="win-card-button">Play again!</button>
+             </div>
+     
+        </div>
+       </div>
+      
+    </div>
 
 </body>
 </html>

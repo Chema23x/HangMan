@@ -260,6 +260,62 @@
   z-index: 15;
 }
 
-.loseGame{
+.endGame{
   filter: blur(5px);
+}
+
+/*Losing alert*/
+.winBox{
+  border: none;
+  background-color: #fbfbfb;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+}
+
+.winBox::before{
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 220%;
+  background: #04d44d;
+  animation: rotate 4s linear infinite;
+}
+
+.winBox::after{
+  content: '';
+  position: absolute;
+  background: #423172;
+  inset: 5px;
+  border-radius: 16px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+/* CSS fROM THE WIN ALERT */
+.win-card-button{
+  margin: 12px;
+  height: 70px;
+  width: 200px;
+  border-radius: 10px;
+  background: #333;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+    inset -5px -5px 10px #222;
+  cursor: pointer;
+  border: none;
+  font-size: 32px;
+  color: rgb(161, 161, 161);
+  transition: 500ms;
+  z-index: 15;
 }
